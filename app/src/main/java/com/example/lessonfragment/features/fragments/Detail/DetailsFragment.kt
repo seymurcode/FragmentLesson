@@ -1,4 +1,4 @@
-package com.example.fragmentproject.fragments
+package com.example.lessonfragment.features.fragments.Detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,19 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.lessonfragment.databinding.FragmentDetailsBinding
 
-
-
-class HomeFragment : Fragment() {
+class DetailsFragment : Fragment() {
 
     lateinit var binding: FragmentDetailsBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        binding= FragmentDetailsBinding.inflate(inflater)
+        binding=FragmentDetailsBinding.inflate(inflater)
         // Inflate the layout for this fragment
         return binding.root
+    }
+
+    companion object {
+        val resultKey = "RESULT"
     }
 }
