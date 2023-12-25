@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LessonFragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>\
+    <string name="home">Ana səhifə</string>
+    <string name="details">Detallar</string>
+    <string name="add">Əlavə et</string>
+</resources>
