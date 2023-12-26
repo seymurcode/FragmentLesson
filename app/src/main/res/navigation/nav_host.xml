@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_host"
     app:startDestination="@id/homeFragment">
 
@@ -8,20 +9,41 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.lessonfragment.features.fragments.Home.HomeFragment"
-        android:label="HomeFragment" >
-        <action
-            android:id="@+id/action_menu_to_product_detail"
-            app:destination="@id/detailsFragment">
-        </action>
-    </fragment>
+        android:name="com.example.lessonfragment.features.fragments.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" >
 
+    </fragment>
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.example.lessonfragment.features.fragments.products.ProductsFragment"
+        android:label="fragmentProducts"
+        tools:layout="@layout/fragment_products" >
+        <argument
+            android:name="product"
+            app:argType="com.example.lessonfragment.model.Product" />
+
+    </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.lessonfragment.features.fragments.Add.AddFragment"
-        android:label="AddFragment" />
+        android:name="com.example.lessonfragment.features.fragments.add.AddFragment"
+        android:label="AddFragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_add_to_list"
+            app:destination="@id/productsFragment">
+        </action>
+        <argument
+            android:name="product"
+            app:argType="com.example.lessonfragment.model.Product" />
+
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.example.lessonfragment.features.fragments.Detail.DetailsFragment"
-        android:label="DetailsFragment" />
+        android:name="com.example.lessonfragment.features.fragments.detail.DetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details" >
+
+           </fragment>
+    </fragment>
 </navigation>

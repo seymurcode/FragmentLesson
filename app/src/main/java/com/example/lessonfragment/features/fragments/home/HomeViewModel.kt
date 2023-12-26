@@ -1,4 +1,4 @@
-package com.example.lessonfragment.features.fragments.Home
+package com.example.lessonfragment.features.fragments.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

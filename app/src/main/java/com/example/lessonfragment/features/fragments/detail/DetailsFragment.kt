@@ -1,4 +1,4 @@
-package com.example.lessonfragment.features.fragments.Detail
+package com.example.lessonfragment.features.fragments.detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,15 +1,12 @@
-package com.example.lessonfragment.features.fragments.Home
+package com.example.lessonfragment.features.fragments.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
-import com.example.lessonfragment.databinding.FragmentDetailsBinding
 import com.example.lessonfragment.databinding.FragmentHomeBinding
-import com.example.lessonfragment.features.fragments.Detail.DetailsFragment
 
 
 class HomeFragment : Fragment() {
@@ -23,7 +20,7 @@ class HomeFragment : Fragment() {
             print(bundle)
         }*/
 
-        //val action = DetailsFragmentDirections.actionMenuToProductDetail()
+        //val action = HomeFragment.actionMenuToProductDetail()
         //findNavController().navigate(action)
     }
 

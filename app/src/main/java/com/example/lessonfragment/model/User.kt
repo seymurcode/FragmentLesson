@@ -8,9 +8,8 @@ import kotlinx.parcelize.Parcelize
 
 @Entity
 @Parcelize
-data class Product(
+data class User(
     @PrimaryKey(autoGenerate = true) val uid: Int,
-    @ColumnInfo(name="product_name") val name: String,
-    @ColumnInfo(name="product_code") val code : String,
-    @ColumnInfo(name="product_description") val description : String
-) : Parcelable {}
+    @ColumnInfo(name="first_name") val firstName: String?,
+    @ColumnInfo(name="last_name") val lastName: String?
+)  : Parcelable {}
