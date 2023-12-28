@@ -14,15 +14,7 @@ class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     lateinit var viewModel: HomeViewModel
 
-    fun openProductPage() {
-        //val action = MenuFragmentDirections.actionMenuToProducts()
-        /*setFragmentResultListener(DetailsFragment.resultKey){ requestKey, bundle ->
-            print(bundle)
-        }*/
 
-        //val action = HomeFragment.actionMenuToProductDetail()
-        //findNavController().navigate(action)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

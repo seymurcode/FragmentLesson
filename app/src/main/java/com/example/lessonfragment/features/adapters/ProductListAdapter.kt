@@ -61,7 +61,8 @@ class ProductListAdapter(val context: Context, private  var datalist: MutableLis
 
         fun bind(product: Product){
             binding.txtProductName.text=product.name
-            binding.txtProductDetaile.text=product.description
+            binding.txtProductDescription.text=product.description
+            binding.txtProductCode.text=product.code
             binding.product=product
             binding.root.setOnClickListener{
                 onClick(binding.product as Product)

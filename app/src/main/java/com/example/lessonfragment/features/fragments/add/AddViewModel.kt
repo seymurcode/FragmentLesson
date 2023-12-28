@@ -12,8 +12,23 @@ class AddViewModel: ViewModel() {
     lateinit var productRepository: ProductRepository
     var addProductEvent = MutableLiveData<Boolean>()
 
+    var nameText = MutableLiveData<String>()
+    var codeText = MutableLiveData<String>()
+    var descriptionText = MutableLiveData<String>()
+
+    var errorObserver = MutableLiveData<String>()
+
     fun onButtonClick() {
+
+        if(nameText.value.isNullOrEmpty() || codeText.value.isNullOrEmpty() || descriptionText.value.isNullOrEmpty()){
+            errorObserver.postValue("Eksik bilgiler!")
+            return
+        }
         addProductEvent.postValue(true)
+    }
+
+    fun createNewProduct() : Product{
+        return Product(0,nameText.value ?: "", codeText.value ?: "", descriptionText.value ?: "")
     }
 
     fun insert(product: Product){
@@ -21,6 +36,7 @@ class AddViewModel: ViewModel() {
             productRepository.insert(product)
         }
     }
+
     fun getAllData() : LiveData<List<Product>>{
         return productRepository.getAll()
     }

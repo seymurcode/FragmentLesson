@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import com.example.lessonfragment.MyApplication
@@ -41,31 +42,52 @@ class AddFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    override fun onResume() {
-        super.onResume()
-
+    fun observeAll() {
         viewModel.addProductEvent.observe(this) {
             if(it) {
                 openProductPage()
             }
         }
+
+        viewModel.errorObserver.observe(this){
+            if(!it.isNullOrEmpty()){
+                Toast.makeText(activity,it, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+
+    fun openProductPage() {
+
+        setFragmentResultListener(DetailsFragment.resultKey) { requestKey, bundle ->
+            print(bundle)
+        }
+
+        val product : Product =viewModel.createNewProduct()
+        viewModel.insert(product)
+        val action = AddFragmentDirections.actionAddToDetail(product)
+        findNavController().navigate(action)
+    }
+
+
+
+
+
+    fun removeAllObservers(){
+
+        viewModel.addProductEvent.removeObservers(this)
+        viewModel.addProductEvent.postValue(false)
+        viewModel.errorObserver.removeObservers(this)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        observeAll()
     }
 
     override fun onPause() {
         super.onPause()
-        viewModel.addProductEvent.removeObservers(this)
-        viewModel.addProductEvent.postValue(false)
+        removeAllObservers()
     }
-    fun openProductPage() {
-        //val action = MenuFragmentDirections.actionMenuToProducts()
-        setFragmentResultListener(DetailsFragment.resultKey){ requestKey, bundle ->
-            print(bundle)
-        }
-        val product = Product(1,"ass","dsad","dsfds")
-        val action = AddFragmentDirections.actionAddToList(product)
-        findNavController().navigate(action)
-
-    }
-
-
 }

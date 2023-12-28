@@ -29,6 +29,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:text="@={viewModel.nameText}"
                 android:hint="@string/product_name"/>
 
             <EditText
@@ -40,6 +41,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextText"
+                android:text="@={viewModel.codeText}"
                 android:hint="@string/product_code"/>
 
             <EditText
@@ -51,6 +53,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextText2"
+                android:text="@={viewModel.descriptionText}"
                 android:hint="@string/product_description"/>
 
             <Button

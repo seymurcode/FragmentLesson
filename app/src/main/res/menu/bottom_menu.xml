@@ -17,8 +17,8 @@
         android:title="@string/products"/>
 
     <item
-        android:id="@+id/detailsFragment"
+        android:id="@+id/profileFragment"
         android:icon="@drawable/ic_details"
-        android:title="@string/details"/>
+        android:title="@string/profile"/>
 
 </menu>

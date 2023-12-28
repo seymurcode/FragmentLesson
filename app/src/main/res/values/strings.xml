@@ -9,4 +9,6 @@
     <string name="product_name">Urun adi</string>
     <string name="product_code">Urun kodu</string>
     <string name="product_description">Urun tanimlamasi</string>
+    <string name="profile">Hesabım</string>
+    <string name="back">Geri</string>
 </resources>
