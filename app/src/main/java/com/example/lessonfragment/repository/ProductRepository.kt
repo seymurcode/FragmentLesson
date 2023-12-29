@@ -5,8 +5,12 @@ import com.example.lessonfragment.dao.ProductDao
 import com.example.lessonfragment.dao.UserDao
 import com.example.lessonfragment.model.Product
 import com.example.lessonfragment.model.User
+import javax.inject.Inject
 
-class ProductRepository(private val productDao: ProductDao) {
+interface ProductRepoInterface{
+
+}
+class ProductRepository @Inject constructor(private val productDao: ProductDao) : ProductRepoInterface {
     suspend fun insert(product: Product){
         productDao.insert(product)
     }

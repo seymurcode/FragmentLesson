@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.lesson2.features.adapters.ProductListAdapter
@@ -21,13 +22,16 @@ import com.example.lessonfragment.features.fragments.detail.DetailsFragment
 import com.example.lessonfragment.features.fragments.detail.DetailsFragment.Companion.resultKey
 import com.example.lessonfragment.model.Product
 import com.example.lessonfragment.repository.ProductRepository
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
+@AndroidEntryPoint
 class ProductsFragment : Fragment() {
 
 
-    lateinit var viewModel: ProductsViewModel
+    val viewModel : ProductsViewModel by viewModels()
+
     lateinit var binding: FragmentProductsBinding
     var adapter : ProductListAdapter?=null
 
@@ -36,8 +40,6 @@ class ProductsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        viewModel=ViewModelProvider(this).get(ProductsViewModel::class.java)
-        viewModel.productRepository=(activity?.application as MyApplication).productRepository
         binding= FragmentProductsBinding.inflate(inflater)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this

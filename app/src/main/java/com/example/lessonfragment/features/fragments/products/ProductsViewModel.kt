@@ -5,12 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.lessonfragment.model.Product
 import com.example.lessonfragment.repository.ProductRepository
+import com.example.lessonfragment.repository.UserRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class ProductsViewModel : ViewModel() {
+@HiltViewModel
+class ProductsViewModel @Inject constructor (var userRepository: UserRepository,
+                                             var productRepository: ProductRepository) : ViewModel() {
     // TODO: Implement the ViewModel
     var productList = mutableListOf<Product>()
-    lateinit var productRepository: ProductRepository
-
     fun getAllData() : LiveData<List<Product>> {
         return productRepository.getAll()
     }
